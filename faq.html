@@ -1,0 +1,160 @@
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <!--bootstrap5 set-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <!--bootstrap5 end-->
+        <!--<script src="main.js"></script>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    </head>
+
+    <body>
+        
+        <!--modal-->
+        <div class="modal fade" id="testModal" tabindex="-1" aria-labelledby="testModalLabel">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="testModalLabel">お知らせ</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                        </symbol>
+                        <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                        </symbol>
+                    </svg>
+                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24"><use xlink:href="#check-circle-fill"/></svg>
+                        <div>
+                          最新バージョン対応 v1.106.0
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <div class="alert alert-primary d-flex align-items-center" role="alert">
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24"><use xlink:href="#info-fill"/></svg>
+                        <div>
+                          サイト更新が遅れる可能性があります。
+                        </div>
+                    </div>
+                
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(window).on('load', function() {
+                $('#testModal').modal('show');
+            });
+        </script>
+        <!--/modal-->
+
+        <!--toast-->
+        <div class="container">
+            <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+                <div class="toast" id="toast-a" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <img src="/img/bar_icon.png" width="25" height="25" class="rounded me-2" alt="..." />
+                        <strong class="me-auto">natsu ツムツム</strong>
+                        <small>1 mins ago</small>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        <p>最短３分で完了します。</p>
+                        <p>バージョン対応 v1.106.0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var toastElList = [].slice.call(document.querySelectorAll(".toast"));
+            var toastList = toastElList.map(function (toastEl) {
+                return new bootstrap.Toast(toastEl, {
+                    // オプション
+                    delay: 60000,
+                });
+            });
+    
+            $(window).on('load', function() {
+                $('#toast-a').toast('show');
+            });
+        </script>
+        <!--/toast-->
+        
+        <!-- hader -->
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <img class="bi me-2" width="50" height="50" src="/img/bar_icon.png">
+                <span class="fs-4">natsu ツムツム代行</span><!--me-2<span class="h1">Title</span>-->
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="home.html" class="nav-link">ホーム</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active">よくある質問</a></li>
+            </ul>
+            </header>
+        </div>
+
+        <main class="container">
+            <div class="my-3 p-3 bg-body rounded shadow-sm">
+              <h6 class="border-bottom pb-2 mb-0">よくある質問</h6>
+
+              <div class="d-flex text-muted pt-3">
+                <p class="pb-3 mb-0 small lh-sm border-bottom">
+                  <strong class="d-block text-gray-dark">支払い方法は何がありますか？</strong>
+                    LINEPay PayPay セブン決済 ファミマ決済<br>
+                    別枠 amazonギフト券の場合(+1000円)
+                </p>
+              </div>
+
+              <div class="d-flex text-muted pt-3">
+                <p class="pb-3 mb-0 small lh-sm border-bottom">
+                  <strong class="d-block text-gray-dark">支払い方法がわからないです。</strong>
+                  【お支払方法がわからない】と一言かけていただけたら<br>
+                   最初から最後まで説明いたしますので、ご安心ください。
+                </p>
+              </div>
+              <div class="d-flex text-muted pt-3">
+                <p class="pb-3 mb-0 small lh-sm border-bottom">
+                  <strong class="d-block text-gray-dark">後払いはできますか？</strong>
+                  後払いは原則対応しておりません。
+                </p>
+              </div>
+              <div class="d-flex text-muted pt-3">
+                <p class="pb-3 mb-0 small lh-sm border-bottom">
+                  <strong class="d-block text-gray-dark">メアドとパスワードの不正利用が不安です。</strong>
+                  アカウント情報は代行以外には一切使用しません。<br>
+                  不安な場合はパスワード変更などをお願いします。
+                </p>
+              </div>
+              <div class="d-flex text-muted pt-3">
+                <p class="pb-3 mb-0 small lh-sm border-bottom">
+                  <strong class="d-block text-gray-dark">Amzonギフト券で払いたいです</strong>
+                  代行金に+1000円のギフト券で受けることも可能です。
+                </p>
+              </div>
+              <div class="d-flex text-muted pt-3">
+                <p class="pb-3 mb-0 small lh-sm border-bottom">
+                  <strong class="d-block text-gray-dark">返金に関して</strong>
+                  基本的にはお客様都合での返金は致しません。<br>
+                  こちら側のミスの場合は返金をいたします。
+                </p>
+              </div>
+              
+            </div>
+        </main>
+
+        <!-- /hader -->
+
+    </body>
+</html>
